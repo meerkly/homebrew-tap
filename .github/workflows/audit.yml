@@ -1,0 +1,40 @@
+name: audit
+
+# The formula lands here from another repository's release job, so this is the
+# only place it is ever checked. A broken formula otherwise surfaces as a failed
+# `brew install` for a user, not as a red build for us.
+on:
+  push:
+  pull_request:
+  # Catches rot rather than change: a dead release URL breaks the formula
+  # without anything being committed here.
+  schedule:
+    - cron: "0 9 * * 1"
+
+jobs:
+  audit:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: brew is present on the runner
+        run: brew --version
+      - name: tap this checkout
+        run: |
+          TAP_DIR="$(brew --repository)/Library/Taps/meerkly/homebrew-tap"
+          mkdir -p "$(dirname "$TAP_DIR")"
+          ln -s "$GITHUB_WORKSPACE" "$TAP_DIR"
+          brew tap | grep meerkly
+      - name: audit every formula
+        run: |
+          shopt -s nullglob
+          formulae=(Formula/*.rb)
+          if [ ${#formulae[@]} -eq 0 ]; then
+            echo "no formulae yet — nothing to audit"
+            exit 0
+          fi
+          brew audit --strict --online meerkly/tap/meerkly
+      - name: style
+        run: |
+          shopt -s nullglob
+          formulae=(Formula/*.rb)
+          [ ${#formulae[@]} -eq 0 ] || brew style meerkly/tap
