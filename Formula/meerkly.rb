@@ -12,23 +12,23 @@ class Meerkly < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/meerkly/meerkly-agent/releases/download/v1.0.0/meerkly-1.0.0-aarch64-apple-darwin.tar.gz"
-      sha256 "da77526063913a9cb76de7fd5968607708962b5b6376ddfc2338792a0f7746e9"
+      url "https://github.com/meerkly/meerkly-agent/releases/download/v1.1.0/meerkly-1.1.0-aarch64-apple-darwin.tar.gz"
+      sha256 "633e2303fab63fe2efa208cc1003fa580416b2cff135963c53e52ad0b3598191"
     end
     on_intel do
-      url "https://github.com/meerkly/meerkly-agent/releases/download/v1.0.0/meerkly-1.0.0-x86_64-apple-darwin.tar.gz"
-      sha256 "d7d0470bf63238cc0933550be6ec424551d7d2d4d6fce9870b9db91bb1f7c2b5"
+      url "https://github.com/meerkly/meerkly-agent/releases/download/v1.1.0/meerkly-1.1.0-x86_64-apple-darwin.tar.gz"
+      sha256 "7f8b819958e8c6dc0f4c55ccd7db61430c5a2fcb13654fc4d63fdcc5f919a53a"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/meerkly/meerkly-agent/releases/download/v1.0.0/meerkly-1.0.0-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "9dfc81056b48cca81c193844a3215f1e91c9f73626fb4c8afb1c183238066d5a"
+      url "https://github.com/meerkly/meerkly-agent/releases/download/v1.1.0/meerkly-1.1.0-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "62dc742419cba736b7ab895fc948dcd8cbb44a8068e10a1b765d520187791fab"
     end
     on_intel do
-      url "https://github.com/meerkly/meerkly-agent/releases/download/v1.0.0/meerkly-1.0.0-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "bb5e33c1cd15661e438ec99597befdf15733c14dc968f0f5fa8023c1800918a3"
+      url "https://github.com/meerkly/meerkly-agent/releases/download/v1.1.0/meerkly-1.1.0-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "adef7904d74753065677cd04ea77ee9f44411954165f3c2009a7258f9591fa38"
     end
   end
 
